@@ -1,6 +1,6 @@
 // used to mark unsupported tokens, these are hosted lists of unsupported tokens
 
-const FX_LIST = ''
+const FX_LIST = 'https://raw.githubusercontent.com/YP010/FXSwap/main/FXList.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = []
 
