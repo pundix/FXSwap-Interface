@@ -1,6 +1,6 @@
 // a list of tokens by chain
 import { ChainId, Token, WETH9 } from '@uniswap/sdk-core'
-import { DAI, USDC, USDT, WBTC, WFX } from './tokens'
+import { DAI, USDT, USDF, WFX } from './tokens'
 
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
@@ -12,7 +12,7 @@ const WETH_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.DHOBYGHAUT]: [...WETH_ONLY[ChainId.DHOBYGHAUT], DAI, USDC, USDT, WBTC],
+  [ChainId.DHOBYGHAUT]: [...WETH_ONLY[ChainId.DHOBYGHAUT], DAI, USDT, USDF],
 }
 
 /**
@@ -24,12 +24,12 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 }
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: Partial<ChainTokenList> = {
-  [ChainId.DHOBYGHAUT]: [WFX],
+  [ChainId.DHOBYGHAUT]: [DAI, USDT, USDF, WFX],
 }
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.DHOBYGHAUT]: [...WETH_ONLY[ChainId.DHOBYGHAUT], DAI, USDC, USDT, WBTC],
+  [ChainId.DHOBYGHAUT]: [...WETH_ONLY[ChainId.DHOBYGHAUT], DAI, USDT, USDF],
 }
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.DHOBYGHAUT]: [],

@@ -144,11 +144,11 @@ export default function SettingsTab({ placeholderSlippage }: { placeholderSlippa
             </RowBetween>
             <Break />
             <AutoColumn gap="lg" style={{ padding: '0 2rem' }}>
-              <Text fontWeight={500} fontSize={20}>
+              <Text fontWeight={500} fontSize={18}>
                 Expert mode turns off the confirm transaction prompt and allows high slippage trades that often result
                 in bad rates and lost funds.
               </Text>
-              <Text fontWeight={600} fontSize={20}>
+              <Text fontWeight={600} fontSize={18}>
                 ONLY USE THIS MODE IF YOU KNOW WHAT YOU ARE DOING.
               </Text>
               <ButtonError
@@ -161,7 +161,7 @@ export default function SettingsTab({ placeholderSlippage }: { placeholderSlippa
                   }
                 }}
               >
-                <Text fontSize={20} fontWeight={500} id="confirm-expert-mode">
+                <Text fontSize={18} fontWeight={500} id="confirm-expert-mode">
                   Turn On Expert Mode
                 </Text>
               </ButtonError>

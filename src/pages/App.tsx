@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 import Header from '../components/Header'
-import Polling from '../components/Header/Polling'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import ErrorBoundary from '../components/ErrorBoundary'
@@ -66,7 +65,6 @@ export default function App() {
           <BodyWrapper>
             <ThemedBackground />
             <Popups />
-            <Polling />
             <Web3ReactManager>
               <Switch>
                 <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />

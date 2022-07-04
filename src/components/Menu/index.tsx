@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { BookOpen, Code, Info, MessageCircle, PieChart } from 'react-feather'
+import { BookOpen, Info, MessageCircle, PieChart } from 'react-feather'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
@@ -120,8 +120,6 @@ const InternalMenuItem = styled(Link)`
   }
 `
 
-//const CODE_LINK = ''
-
 export default function Menu() {
   const { account } = useActiveWeb3React()
 
@@ -148,10 +146,6 @@ export default function Menu() {
             <BookOpen size={14} />
             <div>GitBook</div>
           </MenuItem>
-          {/*<MenuItem href={CODE_LINK}>
-            <Code size={14} />
-            <div>Code</div>
-          </MenuItem>*/}
           <MenuItem href="https://forum.functionx.io/">
             <MessageCircle size={14} />
             <div>Forum</div>

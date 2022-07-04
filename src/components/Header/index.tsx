@@ -16,7 +16,7 @@ import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
 import { ExternalLink } from '../../theme'
 
-import { YellowCard } from '../Card'
+import { RedCard } from '../Card'
 import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
@@ -140,7 +140,7 @@ const HideSmall = styled.span`
   `};
 `
 
-const NetworkCard = styled(YellowCard)`
+const NetworkCard = styled(RedCard)`
   border-radius: 12px;
   padding: 8px 12px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -282,10 +282,7 @@ export default function Header() {
         </StyledNavLink>
         {/*<StyledExternalLink id={`stake-nav-link`} href={'https://info.uniswap.org'}>
           Charts <span style={{ fontSize: '11px', textDecoration: 'none !important' }}>↗</span>
-        </StyledExternalLink>
-        <StyledNavLink id={`stake-nav-link`} to={''}>
-          Charts <span style={{ fontSize: '11px', textDecoration: 'none !important' }}>↗</span>
-        </StyledNavLink>*/}
+        </StyledExternalLink>*/}
       </HeaderLinks>
       <HeaderControls>
         <HeaderElement>

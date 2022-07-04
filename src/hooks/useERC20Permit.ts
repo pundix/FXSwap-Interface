@@ -3,7 +3,6 @@ import { ChainId, Percent, CurrencyAmount, Currency, TradeType, Token } from '@u
 import { Trade as V2Trade } from '@uniswap/v2-sdk'
 import { splitSignature } from 'ethers/lib/utils'
 import { useMemo, useState } from 'react'
-import { DAI, USDC } from '../constants/tokens'
 import { useSingleCallResult } from '../state/multicall/hooks'
 import { useActiveWeb3React } from './web3'
 import { useEIP2612Contract } from './useContract'
@@ -31,10 +30,7 @@ const PERMITTABLE_TOKENS: {
     [checksummedTokenAddress: string]: PermitInfo
   }
 } = {
-  [ChainId.DHOBYGHAUT]: {
-    [USDC.address]: { type: PermitType.AMOUNT, name: 'USD Coin', version: '2' },
-    [DAI.address]: { type: PermitType.ALLOWED, name: 'Dai Stablecoin', version: '1' },
-  },
+  [ChainId.DHOBYGHAUT]: {},
 }
 
 export enum UseERC20PermitState {
@@ -242,7 +238,7 @@ export function useERC20Permit(
 
 const REMOVE_V2_LIQUIDITY_PERMIT_INFO: PermitInfo = {
   version: '1',
-  name: 'Function X V2',
+  name: 'FX Swap V2',
   type: PermitType.AMOUNT,
 }
 

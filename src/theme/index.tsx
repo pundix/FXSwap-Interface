@@ -60,22 +60,22 @@ export function colors(darkMode: boolean): Colors {
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#2172E5' : '#ff007a',
+    primary1: darkMode ? '#2172E5' : '#6318DA',
     primary2: darkMode ? '#3680E7' : '#FF8CC3',
-    primary3: darkMode ? '#4D8FEA' : '#FF99C9',
-    primary4: darkMode ? '#376bad70' : '#F6DDE8',
-    primary5: darkMode ? '#153d6f70' : '#FDEAF1',
+    primary3: darkMode ? '#4D8FEA' : '#C9ADF5',
+    primary4: darkMode ? '#376bad70' : '#E6DBF7',
+    primary5: darkMode ? '#153d6f70' : '#F3ECFF',
 
     // color text
-    primaryText1: darkMode ? '#6da8ff' : '#ff007a',
+    primaryText1: darkMode ? '#A5D8FF' : '#6318DA',
 
     // secondary colors
-    secondary1: darkMode ? '#2172E5' : '#ff007a',
+    secondary1: darkMode ? '#2172E5' : '#6318DA',
     secondary2: darkMode ? '#17000b26' : '#F6DDE8',
     secondary3: darkMode ? '#17000b26' : '#FDEAF1',
 
     // other
-    red1: '#FD4040',
+    red1: '#D83663',
     red2: '#F82D3A',
     red3: '#D60000',
     green1: '#27AE60',
@@ -198,7 +198,7 @@ export const ThemedBackground = styled.div<{ backgroundColor?: string | undefine
   mix-blend-mode: color;
   background: ${({ backgroundColor }) =>
     `radial-gradient(50% 50% at 50% 50%, ${
-      backgroundColor ? backgroundColor : '#fc077d10'
+      backgroundColor ? backgroundColor : '#a01eff0f'
     } 0%, rgba(255, 255, 255, 0) 100%)`};
   transform: translateY(-100vh);
   will-change: background;

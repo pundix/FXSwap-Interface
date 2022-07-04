@@ -16,6 +16,7 @@ import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useWalletModalToggle } from '../../state/application/hooks'
 import { ExternalLink, TYPE } from '../../theme'
 import AccountDetails from '../AccountDetails'
+import { ButtonLight } from '../../components/Button'
 
 import Modal from '../Modal'
 import Option from './Option'
@@ -111,6 +112,30 @@ const WALLET_VIEWS = {
   PENDING: 'pending',
 }
 
+function addFXNetwork() {
+  injected.getProvider().then((provider) => {
+    provider
+      ?.request({
+        method: 'wallet_addEthereumChain',
+        params: [
+          {
+            chainId: '0x15F91',
+            rpcUrls: ['https://testnet-fx-json-web3.functionx.io:8545'],
+            chainName: 'FX Testnet',
+            nativeCurrency: {
+              symbol: 'FX',
+              decimals: 18,
+            },
+            blockExplorerUrls: ['https://testnet-fxscan.functionx.io/'],
+          },
+        ],
+      })
+      .catch((error: any) => {
+        console.log(error)
+      })
+  })
+}
+
 export default function WalletModal({
   pendingTransactions,
   confirmedTransactions,
@@ -157,7 +182,7 @@ export default function WalletModal({
       setWalletView(WALLET_VIEWS.ACCOUNT)
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
-
+  const isMetamask = window.ethereum && window.ethereum.isMetaMask
   const tryActivation = async (connector: AbstractConnector | undefined) => {
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
@@ -183,7 +208,7 @@ export default function WalletModal({
     connector &&
       activate(connector, undefined, true).catch((error) => {
         if (error instanceof UnsupportedChainIdError) {
-          activate(connector) // a little janky...can't use setError because the connector isn't set
+          activate(connector)
         } else {
           setPendingError(true)
         }
@@ -293,7 +318,10 @@ export default function WalletModal({
           <HeaderRow>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error connecting'}</HeaderRow>
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
-              <h5>Please connect to Function X network.</h5>
+              <>
+                <h5>Please connect to the approprate Function X network.</h5>
+                {isMetamask && <ButtonLight onClick={addFXNetwork}>Switch to FX Chain</ButtonLight>}
+              </>
             ) : (
               'Error connecting. Try refreshing the page.'
             )}

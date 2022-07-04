@@ -1,7 +1,7 @@
 import { Contract } from '@ethersproject/contracts'
 import { ChainId, WETH9 } from '@uniswap/sdk-core'
-import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
-import { abi as IUniswapV2Router02ABI } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
+import { abi as IFXSwapV2PairABI } from '@fxswap/FXSwap-Core/IFXSwapV2Pair.json'
+import { abi as IFXSwapV2Router02ABI } from '@fxswap/FXSwap-Periphery/IFXSwapV2Router02.json'
 
 import ARGENT_WALLET_DETECTOR_ABI from 'abis/argent-wallet-detector.json'
 import ENS_PUBLIC_RESOLVER_ABI from 'abis/ens-public-resolver.json'
@@ -9,18 +9,18 @@ import ENS_ABI from 'abis/ens-registrar.json'
 import ERC20_ABI from 'abis/erc20.json'
 import ERC20_BYTES32_ABI from 'abis/erc20_bytes32.json'
 import MULTICALL_ABI from 'abis/multicall.json'
-import WETH_ABI from 'abis/weth.json'
+import WFX_ABI from 'abis/wfx.json'
 import EIP_2612 from 'abis/eip_2612.json'
 
 import {
   ARGENT_WALLET_DETECTOR_ADDRESS,
   MULTICALL_ADDRESSES,
-  V2_ROUTER_ADDRESS,
+  ROUTER_ADDRESS,
   ENS_REGISTRAR_ADDRESSES,
 } from 'constants/addresses'
 import { useMemo } from 'react'
 import { getContract } from 'utils'
-import { ArgentWalletDetector, EnsPublicResolver, EnsRegistrar, Erc20, Multicall, Weth } from '../abis/types'
+import { ArgentWalletDetector, EnsPublicResolver, EnsRegistrar, Erc20, Multicall, Wfx } from '../abis/types'
 import { useActiveWeb3React } from './web3'
 
 // returns null on errors
@@ -52,7 +52,7 @@ export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: b
 
 export function useWETHContract(withSignerIfPossible?: boolean) {
   const { chainId } = useActiveWeb3React()
-  return useContract<Weth>(chainId ? WETH9[chainId]?.address : undefined, WETH_ABI, withSignerIfPossible)
+  return useContract<Wfx>(chainId ? WETH9[chainId]?.address : undefined, WFX_ABI, withSignerIfPossible)
 }
 
 export function useArgentWalletDetectorContract() {
@@ -76,11 +76,11 @@ export function useEIP2612Contract(tokenAddress?: string): Contract | null {
 }
 
 export function usePairContract(pairAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(pairAddress, IUniswapV2PairABI, withSignerIfPossible)
+  return useContract(pairAddress, IFXSwapV2PairABI, withSignerIfPossible)
 }
 
 export function useV2RouterContract(): Contract | null {
-  return useContract(V2_ROUTER_ADDRESS, IUniswapV2Router02ABI, true)
+  return useContract(ROUTER_ADDRESS, IFXSwapV2Router02ABI, true)
 }
 
 export function useMulticallContract() {
