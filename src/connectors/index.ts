@@ -10,14 +10,9 @@ import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
 import FX_LOGO_URL from '../assets/svg/logo.svg'
 
-const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
 const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
 const PORTIS_ID = process.env.REACT_APP_PORTIS_ID
-const WALLETCONNECT_BRIDGE_URL = process.env.REACT_APP_WALLETCONNECT_BRIDGE_URL
-
-if (typeof INFURA_KEY === 'undefined') {
-  throw new Error(`REACT_APP_INFURA_KEY must be a defined environment variable`)
-}
+const WALLETCONNECT_BRIDGE_URL = `https://bridge.walletconnect.org`
 
 const NETWORK_URLS: {
   [chainId in ChainId]: string
@@ -43,7 +38,7 @@ export const injected = new InjectedConnector({
 
 export const walletconnect = new WalletConnectConnector({
   supportedChainIds: SUPPORTED_CHAIN_IDS,
-  infuraId: INFURA_KEY, // obviously a hack
+  rpc: NETWORK_URLS,
   bridge: WALLETCONNECT_BRIDGE_URL,
   qrcode: true,
   pollingInterval: 15000,
