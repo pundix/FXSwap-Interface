@@ -147,7 +147,7 @@ export default function Pool() {
                     Import Pool
                   </Text>
                 </ResponsiveButtonPrimary>
-                <ResponsiveButtonPrimary id="join-pool-button" as={Link} to="/add/ETH">
+                <ResponsiveButtonPrimary id="join-pool-button" as={Link} to="/add/FX">
                   <Text fontWeight={500} fontSize={16}>
                     Add Liquidity
                   </Text>
