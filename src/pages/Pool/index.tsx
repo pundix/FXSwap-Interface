@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { SwapPoolTabs } from '../../components/NavigationTabs'
 import FullPositionCard from '../../components/PositionCard'
 import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
-import { TYPE, HideSmall } from '../../theme'
+import { ExternalLink, TYPE, HideSmall } from '../../theme'
 import { Text } from 'rebass'
 import Card from '../../components/Card'
 import { RowBetween, RowFixed } from '../../components/Row'
@@ -171,7 +171,7 @@ export default function Pool() {
               <>
                 {/*<ButtonSecondary>
                   <RowBetween>
-                    <ExternalLink href={'https://v2.info.uniswap.org/account/' + account}>
+                    <ExternalLink href={'https://app.fx-swap.io/account/' + account}>
                       Account analytics and accrued fees
                     </ExternalLink>
                     <span> ↗</span>

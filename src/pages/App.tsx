@@ -11,11 +11,14 @@ import Pool from './Pool'
 import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import Swap from './Swap'
-import { OpenClaimAddressModalAndRedirectToSwap, RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
+import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import AddLiquidity from './AddLiquidity'
 import { RedirectToAddLiquidity } from './AddLiquidity/redirects'
 import { ThemedBackground } from '../theme'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
+import NetworkModal from '../components/Network/NetworkModal'
+import { useModalOpen, useToggleModal } from '../state/application/hooks'
+import { ApplicationModal } from '../state/application/actions'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -51,6 +54,12 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 
+function TopLevelModals() {
+  const open = useModalOpen(ApplicationModal.CHANGE_NETWORK)
+  const toggle = useToggleModal(ApplicationModal.CHANGE_NETWORK)
+  return <NetworkModal isOpen={open} onDismiss={toggle} />
+}
+
 export default function App() {
   return (
     <ErrorBoundary>
@@ -65,10 +74,9 @@ export default function App() {
           <BodyWrapper>
             <ThemedBackground />
             <Popups />
+            <TopLevelModals />
             <Web3ReactManager>
               <Switch>
-                <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
-
                 <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
                 <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                 <Route exact strict path="/swap" component={Swap} />

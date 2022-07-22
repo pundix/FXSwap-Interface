@@ -1,4 +1,3 @@
-import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
 import { ChainId } from '@uniswap/sdk-core'
 import { TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
@@ -18,6 +17,7 @@ export type TokenAddressMap = Readonly<
  */
 const EMPTY_LIST: TokenAddressMap = {
   [ChainId.DHOBYGHAUT]: {},
+  [ChainId.FXCORE]: {},
 }
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
@@ -51,9 +51,6 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
   return map
 }
 
-const TRANSFORMED_DEFAULT_TOKEN_LIST = listToTokenMap(DEFAULT_TOKEN_LIST)
-console.log(TRANSFORMED_DEFAULT_TOKEN_LIST)
-
 export function useAllLists(): AppState['lists']['byUrl'] {
   return useSelector<AppState, AppState['lists']['byUrl']>((state) => state.lists.byUrl)
 }
@@ -61,6 +58,7 @@ export function useAllLists(): AppState['lists']['byUrl'] {
 function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddressMap {
   return {
     [ChainId.DHOBYGHAUT]: { ...map1[ChainId.DHOBYGHAUT], ...map2[ChainId.DHOBYGHAUT] },
+    [ChainId.FXCORE]: { ...map1[ChainId.FXCORE], ...map2[ChainId.FXCORE] },
   }
 }
 

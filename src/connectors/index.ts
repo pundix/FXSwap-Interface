@@ -18,13 +18,14 @@ const NETWORK_URLS: {
   [chainId in ChainId]: string
 } = {
   [ChainId.DHOBYGHAUT]: `https://testnet-fx-json-web3.functionx.io:8545`,
+  [ChainId.FXCORE]: `https://fx-json-web3.functionx.io:8545`,
 }
 
-const SUPPORTED_CHAIN_IDS = [ChainId.DHOBYGHAUT]
+const SUPPORTED_CHAIN_IDS = [ChainId.FXCORE, ChainId.DHOBYGHAUT]
 
 export const network = new NetworkConnector({
   urls: NETWORK_URLS,
-  defaultChainId: ChainId.DHOBYGHAUT,
+  defaultChainId: ChainId.FXCORE,
 })
 
 let networkLibrary: Web3Provider | undefined
@@ -58,7 +59,7 @@ export const portis = new PortisConnector({
 
 // Mainnet only
 export const walletlink = new WalletLinkConnector({
-  url: NETWORK_URLS[ChainId.DHOBYGHAUT],
+  url: NETWORK_URLS[ChainId.FXCORE],
   appName: 'Function X',
   appLogoUrl: FX_LOGO_URL,
 })

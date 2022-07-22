@@ -68,7 +68,7 @@
         "type": "address"
       }
     ],
-    "name": "getEthBalance",
+    "name": "getFXBalance",
     "outputs": [
       {
         "name": "balance",

@@ -3,10 +3,10 @@ import { FortmaticConnector as FortmaticConnectorCore } from '@web3-react/fortma
 
 export const OVERLAY_READY = 'OVERLAY_READY'
 
-type FormaticSupportedChains = Extract<ChainId, ChainId.DHOBYGHAUT>
+type FormaticSupportedChains = Extract<ChainId, ChainId.FXCORE>
 
 const CHAIN_ID_NETWORK_ARGUMENT: { readonly [chainId in FormaticSupportedChains]: string | undefined } = {
-  [ChainId.DHOBYGHAUT]: 'DhobyGhaut',
+  [ChainId.FXCORE]: 'fxcore',
 }
 
 export class FortmaticConnector extends FortmaticConnectorCore {

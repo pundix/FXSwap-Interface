@@ -1,5 +1,10 @@
 import { ChainId } from '@uniswap/sdk-core'
 
+const FXSCAN_PREFIXES: { [chainId in ChainId]: string } = {
+  530: 'fx-evm.',
+  90001: 'testnet-fxscan.',
+}
+
 export enum ExplorerDataType {
   TRANSACTION = 'transaction',
   TOKEN = 'token',
@@ -14,7 +19,7 @@ export enum ExplorerDataType {
  * @param type the type of the data
  */
 export function getExplorerLink(chainId: ChainId, data: string, type: ExplorerDataType): string {
-  const prefix = `https://testnet-fxscan.functionx.io`
+  const prefix = `https://${FXSCAN_PREFIXES[chainId] || FXSCAN_PREFIXES[530]}functionx.io`
 
   switch (type) {
     case ExplorerDataType.TRANSACTION: {

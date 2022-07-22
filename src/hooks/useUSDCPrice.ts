@@ -15,7 +15,7 @@ const usdcCurrencyAmount = CurrencyAmount.fromRawAmount(USDC, 100_000e6)
 export default function useUSDCPrice(currency?: Currency): Price<Currency, Token> | undefined {
   const { chainId } = useActiveWeb3React()
 
-  const v2USDCTrade = useV2TradeExactOut(currency, chainId === ChainId.DHOBYGHAUT ? usdcCurrencyAmount : undefined, {
+  const v2USDCTrade = useV2TradeExactOut(currency, chainId === ChainId.FXCORE ? usdcCurrencyAmount : undefined, {
     maxHops: 2,
   })
 
@@ -25,7 +25,7 @@ export default function useUSDCPrice(currency?: Currency): Price<Currency, Token
     }
 
     // return some fake price data for non-mainnet
-    if (chainId !== ChainId.DHOBYGHAUT) {
+    if (chainId !== ChainId.FXCORE && chainId !== ChainId.DHOBYGHAUT) {
       const fakeUSDC = new Token(chainId, '0xF5b24c0093b65408ACE53df7ce86a02448d53b25', 6, 'fUSDC', 'Fake USDC')
       return new Price(
         currency,

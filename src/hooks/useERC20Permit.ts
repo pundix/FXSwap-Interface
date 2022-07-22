@@ -31,6 +31,7 @@ const PERMITTABLE_TOKENS: {
   }
 } = {
   [ChainId.DHOBYGHAUT]: {},
+  [ChainId.FXCORE]: {},
 }
 
 export enum UseERC20PermitState {

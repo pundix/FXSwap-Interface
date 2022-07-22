@@ -5,6 +5,7 @@ import FXLogo from '../../assets/images/fx-logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/wrappedTokenInfo'
 import Logo from '../Logo'
+import { _WFX } from 'constants/tokens'
 
 export const getTokenLogoURL = (address: string) =>
   `https://raw.githubusercontent.com/YP010/FXSwap/main/Tokens/${address}/logo.png`
@@ -40,7 +41,8 @@ export default function CurrencyLogo({
     if (!currency || currency.isEther) return []
 
     if (currency.isToken) {
-      const defaultUrls = currency.chainId === ChainId.DHOBYGHAUT ? [getTokenLogoURL(currency.address)] : []
+      const defaultUrls =
+        currency.chainId === ChainId.FXCORE ? [getTokenLogoURL(currency.address)] : [getTokenLogoURL(_WFX.address)]
       if (currency instanceof WrappedTokenInfo) {
         return [...uriLocations, ...defaultUrls]
       }

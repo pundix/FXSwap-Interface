@@ -21,6 +21,8 @@ import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
+import { ApplicationModal } from '../../state/application/actions'
+import { useToggleModal } from '../../state/application/hooks'
 
 const HeaderFrame = styled.div<{ showBackground: boolean }>`
   display: grid;
@@ -182,6 +184,33 @@ const UniIcon = styled.div`
 
 const activeClassName = 'ACTIVE'
 
+const StyledExternalLink = styled(ExternalLink).attrs({
+  activeClassName,
+})<{ isActive?: boolean }>`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: left;
+  border-radius: 3rem;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text2};
+  font-size: 1rem;
+  width: fit-content;
+  margin: 0 12px;
+  font-weight: 500;
+
+  &.${activeClassName} {
+    border-radius: 12px;
+    font-weight: 600;
+    color: ${({ theme }) => theme.text1};
+  }
+
+  :hover,
+  :focus {
+    color: ${({ theme }) => darken(0.1, theme.text1)};
+  }
+`
+
 const StyledNavLink = styled(NavLink).attrs({
   activeClassName,
 })`
@@ -241,7 +270,8 @@ export const StyledMenuButton = styled.button`
 `
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
-  [ChainId.DHOBYGHAUT]: 'DhobyGhaut',
+  [ChainId.DHOBYGHAUT]: 'dhobyghaut',
+  [ChainId.FXCORE]: 'fxcore',
 }
 
 export default function Header() {
@@ -253,6 +283,7 @@ export default function Header() {
   const [darkMode, toggleDarkMode] = useDarkModeManager()
 
   const scrollY = useScrollPosition()
+  const openNetworkModal = useToggleModal(ApplicationModal.CHANGE_NETWORK)
 
   return (
     <HeaderFrame showBackground={scrollY > 45}>
@@ -280,13 +311,13 @@ export default function Header() {
         >
           {t('pool')}
         </StyledNavLink>
-        {/*<StyledExternalLink id={`stake-nav-link`} href={'https://info.uniswap.org'}>
+        {/*<StyledExternalLink id={`stake-nav-link`} href={'https://app.fx-swap.io/'}>
           Charts <span style={{ fontSize: '11px', textDecoration: 'none !important' }}>↗</span>
         </StyledExternalLink>*/}
       </HeaderLinks>
       <HeaderControls>
         <HeaderElement>
-          <HideSmall>
+          <HideSmall onClick={openNetworkModal}>
             {chainId && NETWORK_LABELS[chainId] && (
               <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
             )}

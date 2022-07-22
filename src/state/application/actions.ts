@@ -22,7 +22,7 @@ export enum ApplicationModal {
   WALLET,
   SETTINGS,
   SELF_CLAIM,
-  ADDRESS_CLAIM,
+  CHANGE_NETWORK,
   CLAIM_POPUP,
   MENU,
   DELEGATE,

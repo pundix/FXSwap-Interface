@@ -119,14 +119,14 @@ function addFXNetwork() {
         method: 'wallet_addEthereumChain',
         params: [
           {
-            chainId: '0x15F91',
-            rpcUrls: ['https://testnet-fx-json-web3.functionx.io:8545'],
-            chainName: 'FX Testnet',
+            chainId: '0x212',
+            rpcUrls: ['https://fx-json-web3.functionx.io:8545'],
+            chainName: 'FX Mainnet',
             nativeCurrency: {
               symbol: 'FX',
               decimals: 18,
             },
-            blockExplorerUrls: ['https://testnet-fxscan.functionx.io/'],
+            blockExplorerUrls: ['https://fx-evm.functionx.io/'],
           },
         ],
       })
@@ -320,7 +320,11 @@ export default function WalletModal({
             {error instanceof UnsupportedChainIdError ? (
               <>
                 <h5>Please connect to the approprate Function X network.</h5>
-                {isMetamask && <ButtonLight onClick={addFXNetwork}>Switch to FX Chain</ButtonLight>}
+                {isMetamask && (
+                  <ButtonLight marginTop={20} onClick={addFXNetwork}>
+                    Switch to FX Chain
+                  </ButtonLight>
+                )}
               </>
             ) : (
               'Error connecting. Try refreshing the page.'

@@ -47,7 +47,7 @@ const StyledMenuButton = styled.button`
   }
 `
 
-const UNIbutton = styled(ButtonPrimary)`
+const ClaimButton = styled(ButtonPrimary)`
   background-color: ${({ theme }) => theme.bg3};
   background: radial-gradient(174.47% 188.91% at 1.84% 0%, #ff007a 0%, #2172e5 100%), #edeef2;
   border: none;
@@ -118,7 +118,7 @@ const InternalMenuItem = styled(Link)`
 `
 
 export default function Menu() {
-  const { account } = useActiveWeb3React()
+  const { account, chainId } = useActiveWeb3React()
 
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.MENU)
@@ -146,12 +146,12 @@ export default function Menu() {
             <MessageCircle size={14} />
             <div>Forum</div>
           </MenuItem>
-          {/*<MenuItem href="">
+          {/*<MenuItem href="https://app.fx-swap.io/">
             <PieChart size={14} />
             <div>Analytics</div>
           </MenuItem>*/}
-          {account && (
-            <UNIbutton
+          {account && chainId === 90001 && (
+            <ClaimButton
               onClick={() => window.open('https://testnet-faucet.functionx.io/', '_blank')}
               padding="8px 16px"
               width="100%"
@@ -159,7 +159,7 @@ export default function Menu() {
               mt="0.5rem"
             >
               Claim FX
-            </UNIbutton>
+            </ClaimButton>
           )}
         </MenuFlyout>
       )}
