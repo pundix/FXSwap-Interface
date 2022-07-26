@@ -41,7 +41,7 @@ export default function NetworkModal({ isOpen, onDismiss }: { isOpen: boolean; o
                 decimals: 18,
               },
               blockExplorerUrls: [
-                chainId === 530 ? 'https://testnet-fxscan.functionx.io/' : 'https://fx-evm.functionx.io/',
+                chainId === 530 ? 'https://testnet-explorer.functionx.io/evm' : 'https://explorer.functionx.io/evm',
               ],
             },
           ],

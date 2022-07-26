@@ -126,7 +126,7 @@ function addFXNetwork() {
               symbol: 'FX',
               decimals: 18,
             },
-            blockExplorerUrls: ['https://fx-evm.functionx.io/'],
+            blockExplorerUrls: ['https://explorer.functionx.io/evm'],
           },
         ],
       })
