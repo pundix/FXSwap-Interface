@@ -9,6 +9,7 @@ export const PUNDIX = new Token(
   'PUNDI X Token'
 )
 export const PURSE = new Token(ChainId.FXCORE, '0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687', 18, 'PURSE', 'PURSE Token')
+export const USDT = new Token(ChainId.FXCORE, '0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265', 6, 'USDT', 'Tether USD')
 export const USDC = new Token(ChainId.FXCORE, '0x0000000000000000000000000000000000000000', 6, 'USDC', 'USD//C')
 
 export const _WFX = new Token(ChainId.DHOBYGHAUT, '0x3452e23F9c4cC62c70B7ADAd699B264AF3549C19', 18, 'WFX', 'Wrapped FX')
