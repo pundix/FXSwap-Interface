@@ -1,4 +1,4 @@
-import { Currency, Token, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, Token, CurrencyAmount } from '@fx-swap/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { useActiveWeb3React } from '../../hooks/web3'

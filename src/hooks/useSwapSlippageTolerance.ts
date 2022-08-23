@@ -1,4 +1,4 @@
-import { Percent } from '@uniswap/sdk-core'
+import { Percent } from '@fx-swap/sdk-core'
 import { useMemo } from 'react'
 import { useUserSlippageToleranceWithDefault } from '../state/user/hooks'
 

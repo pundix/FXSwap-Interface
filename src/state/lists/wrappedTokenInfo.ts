@@ -1,6 +1,6 @@
-import { ChainId, Token } from '@uniswap/sdk-core'
-import { Tags, TokenInfo } from '@uniswap/token-lists'
-import { TokenList } from '@uniswap/token-lists/dist/types'
+import { ChainId, Token } from '@fx-swap/sdk-core'
+import { Tags, TokenInfo } from '@fx-swap/token-lists'
+import { TokenList } from '@fx-swap/token-lists/dist/types'
 import { isAddress } from '../../utils'
 
 type TagDetails = Tags[keyof Tags]

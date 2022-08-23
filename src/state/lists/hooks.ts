@@ -1,5 +1,5 @@
-import { ChainId } from '@uniswap/sdk-core'
-import { TokenList } from '@uniswap/token-lists'
+import { ChainId } from '@fx-swap/sdk-core'
+import { TokenList } from '@fx-swap/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import sortByListPriority from 'utils/listSort'

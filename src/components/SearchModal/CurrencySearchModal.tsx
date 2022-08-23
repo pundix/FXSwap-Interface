@@ -1,4 +1,4 @@
-import { Currency, Token } from '@uniswap/sdk-core'
+import { Currency, Token } from '@fx-swap/sdk-core'
 import React, { useCallback, useEffect, useState } from 'react'
 import useLast from '../../hooks/useLast'
 import { WrappedTokenInfo } from '../../state/lists/wrappedTokenInfo'
@@ -7,7 +7,7 @@ import { CurrencySearch } from './CurrencySearch'
 import { ImportToken } from './ImportToken'
 import usePrevious from 'hooks/usePrevious'
 import Manage from './Manage'
-import { TokenList } from '@uniswap/token-lists'
+import { TokenList } from '@fx-swap/token-lists'
 import { ImportList } from './ImportList'
 
 interface CurrencySearchModalProps {

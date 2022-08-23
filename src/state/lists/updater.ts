@@ -1,5 +1,5 @@
 import { useAllLists } from 'state/lists/hooks'
-import { getVersionUpgrade, minVersionBump, VersionUpgrade } from '@uniswap/token-lists'
+import { getVersionUpgrade, minVersionBump, VersionUpgrade } from '@fx-swap/token-lists'
 import { useCallback, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useActiveWeb3React } from '../../hooks/web3'

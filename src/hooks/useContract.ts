@@ -1,5 +1,5 @@
 import { Contract } from '@ethersproject/contracts'
-import { ChainId, WETH9 } from '@uniswap/sdk-core'
+import { ChainId, WETH9 } from '@fx-swap/sdk-core'
 import { abi as IFXSwapV2PairABI } from '@fxswap/FXSwap-Core/IFXSwapV2Pair.json'
 import { abi as IFXSwapV2Router02ABI } from '@fxswap/FXSwap-Periphery/IFXSwapV2Router02.json'
 

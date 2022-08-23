@@ -1,5 +1,5 @@
 // a list of tokens by chain
-import { ChainId, Token, WETH9 } from '@uniswap/sdk-core'
+import { ChainId, Token, WETH9 } from '@fx-swap/sdk-core'
 import { PURSE, PUNDIX, WFX, USDT, _WFX } from './tokens'
 
 type ChainTokenList = {

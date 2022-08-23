@@ -1,4 +1,4 @@
-import { Currency, Token } from '@uniswap/sdk-core'
+import { Currency, Token } from '@fx-swap/sdk-core'
 import { useMemo } from 'react'
 import { useUnsupportedTokens } from './Tokens'
 

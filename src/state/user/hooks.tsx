@@ -1,5 +1,5 @@
-import { ChainId, Percent, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
+import { ChainId, Percent, Token } from '@fx-swap/sdk-core'
+import { Pair } from '@fx-swap/v2-sdk'
 import JSBI from 'jsbi'
 import flatMap from 'lodash.flatmap'
 import { useCallback, useMemo } from 'react'

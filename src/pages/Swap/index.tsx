@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, Token, TradeType } from '@uniswap/sdk-core'
-import { Trade as V2Trade } from '@uniswap/v2-sdk'
+import { Currency, CurrencyAmount, Token, TradeType } from '@fx-swap/sdk-core'
+import { Trade as V2Trade } from '@fx-swap/v2-sdk'
 import { AdvancedSwapDetails } from 'components/swap/AdvancedSwapDetails'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { MouseoverTooltip, MouseoverTooltipContent } from 'components/Tooltip'

@@ -1,7 +1,7 @@
-import { TokenInfo } from '@uniswap/token-lists'
+import { TokenInfo } from '@fx-swap/token-lists'
 import { useMemo } from 'react'
 import { isAddress } from '../../utils'
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@fx-swap/sdk-core'
 
 const alwaysTrue = () => true
 

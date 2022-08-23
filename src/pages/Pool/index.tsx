@@ -17,7 +17,7 @@ import { useV2Pairs } from '../../hooks/useV2Pairs'
 import { toV2LiquidityToken, useTrackedTokenPairs } from '../../state/user/hooks'
 import { Dots } from '../../components/swap/styleds'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
-import { Pair } from '@uniswap/v2-sdk'
+import { Pair } from '@fx-swap/v2-sdk'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Percent } from '@uniswap/sdk-core'
+import { Percent } from '@fx-swap/sdk-core'
 import styled, { ThemeContext } from 'styled-components'
 
 import QuestionHelper from '../QuestionHelper'

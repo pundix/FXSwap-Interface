@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core'
+import { ChainId } from '@fx-swap/sdk-core'
 import useScrollPosition from '@react-hook/window-scroll'
 import React from 'react'
 import { Text } from 'rebass'

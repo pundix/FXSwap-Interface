@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 import { useFetchListCallback } from '../../hooks/useFetchListCallback'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
-import { TokenList } from '@uniswap/token-lists'
+import { TokenList } from '@fx-swap/token-lists'
 
 import useToggle from '../../hooks/useToggle'
 import { AppDispatch, AppState } from '../../state'

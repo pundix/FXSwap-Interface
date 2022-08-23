@@ -1,11 +1,11 @@
-import { Pair } from '@uniswap/v2-sdk'
+import { Pair } from '@fx-swap/v2-sdk'
 import { useMemo } from 'react'
 import { abi as IFXSwapV2PairABI } from '@fxswap/FXSwap-Core/IFXSwapV2Pair.json'
 import { Interface } from '@ethersproject/abi'
 import { useActiveWeb3React } from './web3'
 import { useMultipleContractSingleData } from '../state/multicall/hooks'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@fx-swap/sdk-core'
 
 const PAIR_INTERFACE = new Interface(IFXSwapV2PairABI)
 

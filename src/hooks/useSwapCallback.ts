@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Router, Trade as V2Trade } from '@uniswap/v2-sdk'
-import { Currency, Percent, TradeType } from '@uniswap/sdk-core'
+import { Router, Trade as V2Trade } from '@fx-swap/v2-sdk'
+import { Currency, Percent, TradeType } from '@fx-swap/sdk-core'
 import { useMemo } from 'react'
 import { calculateGasMargin } from '../utils/calculateGasMargin'
 import { useTransactionAdder } from '../state/transactions/hooks'

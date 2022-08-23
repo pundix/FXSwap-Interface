@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@uniswap/sdk-core'
+import { ChainId, Token } from '@fx-swap/sdk-core'
 
 export const WFX = new Token(ChainId.FXCORE, '0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd', 18, 'WFX', 'Wrapped FX')
 export const PUNDIX = new Token(

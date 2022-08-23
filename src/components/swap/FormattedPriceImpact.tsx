@@ -1,4 +1,4 @@
-import { Percent } from '@uniswap/sdk-core'
+import { Percent } from '@fx-swap/sdk-core'
 import React from 'react'
 import { warningSeverity } from '../../utils/prices'
 import { ErrorText, ErrorPill } from './styleds'

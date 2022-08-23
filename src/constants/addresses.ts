@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core'
+import { ChainId } from '@fx-swap/sdk-core'
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 
 export const MULTICALL_ADDRESSES = constructSameAddressMap('0xC43a7181654639556e4caca1bf9219C14a106401')

@@ -1,6 +1,6 @@
 import JSBI from 'jsbi'
-import { ChainId, Percent, CurrencyAmount, Currency, TradeType, Token } from '@uniswap/sdk-core'
-import { Trade as V2Trade } from '@uniswap/v2-sdk'
+import { ChainId, Percent, CurrencyAmount, Currency, TradeType, Token } from '@fx-swap/sdk-core'
+import { Trade as V2Trade } from '@fx-swap/v2-sdk'
 import { splitSignature } from 'ethers/lib/utils'
 import { useMemo, useState } from 'react'
 import { useSingleCallResult } from '../state/multicall/hooks'

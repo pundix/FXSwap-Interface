@@ -1,4 +1,4 @@
-import { ChainId, Currency } from '@uniswap/sdk-core'
+import { ChainId, Currency } from '@fx-swap/sdk-core'
 import React, { useMemo } from 'react'
 import styled from 'styled-components/macro'
 import FXLogo from '../../assets/images/fx-logo.png'
@@ -8,7 +8,7 @@ import Logo from '../Logo'
 import { _WFX } from 'constants/tokens'
 
 export const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com/YP010/FXSwap/main/Tokens/${address}/logo.png`
+  `https://raw.githubusercontent.com/YP010/FXSwap-TokenList/main/Tokens/${address}/logo.png`
 
 const StyledFXLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};

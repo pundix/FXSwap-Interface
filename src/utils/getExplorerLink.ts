@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core'
+import { ChainId } from '@fx-swap/sdk-core'
 
 const FXSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   530: '',

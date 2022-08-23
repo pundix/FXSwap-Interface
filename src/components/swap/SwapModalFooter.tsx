@@ -1,5 +1,5 @@
-import { Currency, TradeType } from '@uniswap/sdk-core'
-import { Trade as V2Trade } from '@uniswap/v2-sdk'
+import { Currency, TradeType } from '@fx-swap/sdk-core'
+import { Trade as V2Trade } from '@fx-swap/v2-sdk'
 
 import React from 'react'
 import { Text } from 'rebass'
