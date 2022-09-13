@@ -2054,15 +2054,15 @@
     "@ethersproject/properties" "^5.1.0"
     "@ethersproject/strings" "^5.1.0"
 
-"@fx-swap/sdk-core@^1.0.0-beta.6":
-  version "1.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@fx-swap/sdk-core/-/sdk-core-1.0.0-beta.6.tgz#c456e10fa27fca1b17e327271741ece1f2288824"
-  integrity sha512-c8lMTCKLGkus7Bm1ddYDF7oKWXLynHmJCxPiDC8w/E1Uk2jh5fDjoJEDEc1vIF8QwyNR6+A77hX7ahiWARLOrA==
+"@fx-swap/sdk-core@^1.0.0-beta.7":
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@fx-swap/sdk-core/-/sdk-core-1.0.0-beta.7.tgz#eabd05d2104fd4e8b4817ff0de0d53d2ac3d1820"
+  integrity sha512-3ct4U4rkERLw4ut+RDGZVNYg4HhGNkuApokiM6Q/h2ufcVj2mozH7JNdV4DYgksisnNc+oW0pzbVvg20Z5LASQ==
   dependencies:
     "@ethersproject/address" "^5.0.2"
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
-    jsbi "^4.3.0"
+    jsbi "^3.1.4"
     tiny-invariant "^1.1.0"
     toformat "^2.0.0"
 
@@ -2071,17 +2071,16 @@
   resolved "https://registry.yarnpkg.com/@fx-swap/token-lists/-/token-lists-1.0.0-beta.7.tgz#eee5c62480cade8284e79d06c08b6358b3ce97d0"
   integrity sha512-5DbeUgv85zo5jmniTJhrp6362SuBiKlVvH4eVKX9Zvu9Xz6WhygCxfSrXaPf+VnHkdcrs6PCE8dO675+XquKPw==
 
-"@fx-swap/v2-sdk@^1.0.0-beta.6":
-  version "1.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@fx-swap/v2-sdk/-/v2-sdk-1.0.0-beta.6.tgz#fa644d892c76714b39995dd6af9de1935c74927d"
-  integrity sha512-gQfh236r+pEcFPHa7yGk/YktD/s91yDzw4e/sbtTHJ1edJwXmoXc0U/t+FufD3T3XhmBBOmWqOQsVWEWzdEIOA==
+"@fx-swap/v2-sdk@^1.0.0-beta.9":
+  version "1.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@fx-swap/v2-sdk/-/v2-sdk-1.0.0-beta.9.tgz#804a96ab535a205f454e1522f962a77a197bba74"
+  integrity sha512-1OtAr9Od63xdOUX+01fVIkm/rePC7sVMxMiDTzVRTRInW/YM9NkR3CHNPUZJKMG4vZgmJdl1XOFTehr56PW/TA==
   dependencies:
     "@ethersproject/address" "^5.0.0"
     "@ethersproject/solidity" "^5.0.0"
-    "@fx-swap/sdk-core" "^1.0.0-beta.6"
+    "@fx-swap/sdk-core" "^1.0.0-beta.7"
     tiny-invariant "^1.1.0"
     tiny-warning "^1.0.3"
-    typescript "^3.9.10"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -12363,10 +12362,10 @@ js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-jsbi@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/jsbi/-/jsbi-4.3.0.tgz#b54ee074fb6fcbc00619559305c8f7e912b04741"
-  integrity sha512-SnZNcinB4RIcnEyZqFPdGPVgrg2AcnykiBy0sHVJQKHYeaLUvi3Exj+iaPpLnFVkDPZIV4U0yvgC9/R4uEAZ9g==
+jsbi@^3.1.4:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/jsbi/-/jsbi-3.2.5.tgz#b37bb90e0e5c2814c1c2a1bcd8c729888a2e37d6"
+  integrity sha512-aBE4n43IPvjaddScbvWRA2YlTzKEynHzu7MqOyTipdHucf/VxS63ViCjxYRg86M8Rxwbt/GfzHl1kKERkt45fQ==
 
 jsbn@~0.1.0:
   version "0.1.1"
@@ -18561,11 +18560,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typescript@^3.9.10:
-  version "3.9.10"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
-  integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
 
 typescript@^4.2.3:
   version "4.2.4"

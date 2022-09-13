@@ -10,7 +10,7 @@ async function getColorFromToken(token: Token): Promise<string | null> {
     return Promise.resolve('#FAAB14')
   }
 
-  const path = `https://raw.githubusercontent.com/YP010/FXSwap/main/Tokens/${token.address}/logo.png`
+  const path = `https://raw.githubusercontent.com/YP010/FXSwap-TokenList/main/Tokens/${token.address}/logo.png`
 
   return Vibrant.from(path)
     .getPalette()
