@@ -361,6 +361,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 otherCurrency={currencies[Field.OUTPUT]}
                 showCommonBases={true}
                 id="swap-currency-input"
+                amount={null}
               />
               <ArrowWrapper clickable>
                 <ArrowDown
@@ -385,6 +386,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 otherCurrency={currencies[Field.INPUT]}
                 showCommonBases={true}
                 id="swap-currency-output"
+                amount={null}
               />
             </div>
 

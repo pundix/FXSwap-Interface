@@ -7,7 +7,7 @@ import uriToHttp from 'utils/uriToHttp'
 
 async function getColorFromToken(token: Token): Promise<string | null> {
   if (token.chainId !== ChainId.DHOBYGHAUT) {
-    return Promise.resolve('#FAAB14')
+    return Promise.resolve('#D5B8F2')
   }
 
   const path = `https://raw.githubusercontent.com/YP010/FXSwap-TokenList/main/Tokens/${token.address}/logo.png`

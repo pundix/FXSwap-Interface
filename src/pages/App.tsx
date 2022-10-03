@@ -19,6 +19,8 @@ import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 import NetworkModal from '../components/Network/NetworkModal'
 import { useModalOpen, useToggleModal } from '../state/application/hooks'
 import { ApplicationModal } from '../state/application/actions'
+import Earn from './Earn'
+import Manage from './Earn/Manage'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -88,6 +90,9 @@ export default function App() {
                 <Route exact path="/add" component={AddLiquidity} />
                 <Route exact strict path="/add/:currencyIdA?/:currencyIdB?" component={RedirectToAddLiquidity} />
                 <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+
+                <Route exact strict path="/farm" component={Earn} />
+                <Route exact strict path="/farm/:currencyIdA/:currencyIdB" component={Manage} />
 
                 <Route component={RedirectPathToSwapOnly} />
               </Switch>

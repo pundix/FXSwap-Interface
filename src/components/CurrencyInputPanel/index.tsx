@@ -19,6 +19,7 @@ import { Lock } from 'react-feather'
 import { AutoColumn } from 'components/Column'
 import { FiatValue } from './FiatValue'
 import { formatTokenAmount } from 'utils/formatTokenAmount'
+import FormattedCurrencyAmount from 'components/FormattedCurrencyAmount'
 
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   ${({ theme }) => theme.flexColumnNoWrap}
@@ -161,6 +162,7 @@ interface CurrencyInputPanelProps {
   showCommonBases?: boolean
   customBalanceText?: string
   locked?: boolean
+  amount: CurrencyAmount<Currency> | null
 }
 
 export default function CurrencyInputPanel({
@@ -180,6 +182,7 @@ export default function CurrencyInputPanel({
   pair = null, // used for double token logo
   hideInput = false,
   locked = false,
+  amount,
   ...rest
 }: CurrencyInputPanelProps) {
   const { t } = useTranslation()
@@ -267,12 +270,17 @@ export default function CurrencyInputPanel({
                     fontSize={14}
                     style={{ display: 'inline', cursor: 'pointer' }}
                   >
-                    {!hideBalance && !!currency && selectedCurrencyBalance
+                    {amount && !hideBalance && !!currency && selectedCurrencyBalance
+                      ? (customBalanceText ?? 'Balance: ') + ' '
+                      : null}
+                    {amount ? <FormattedCurrencyAmount currencyAmount={amount} /> : null}
+                    {amount && !hideBalance && !!currency && selectedCurrencyBalance ? ' ' + currency.symbol : null}
+                    {!amount && !hideBalance && !!currency && selectedCurrencyBalance
                       ? (customBalanceText ?? 'Balance: ') +
                         formatTokenAmount(selectedCurrencyBalance, 4) +
                         ' ' +
                         currency.symbol
-                      : '-'}
+                      : null}
                   </TYPE.body>
                   {showMaxButton && selectedCurrencyBalance ? (
                     <StyledBalanceMax onClick={onMax}>MAX</StyledBalanceMax>

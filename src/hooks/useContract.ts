@@ -2,6 +2,7 @@ import { Contract } from '@ethersproject/contracts'
 import { ChainId, WETH9 } from '@fx-swap/sdk-core'
 import { abi as IFXSwapV2PairABI } from '@fxswap/FXSwap-Core/IFXSwapV2Pair.json'
 import { abi as IFXSwapV2Router02ABI } from '@fxswap/FXSwap-Periphery/IFXSwapV2Router02.json'
+import { abi as STAKING_REWARDS_ABI } from '@fxswap/StakingRewards.json'
 
 import ARGENT_WALLET_DETECTOR_ABI from 'abis/argent-wallet-detector.json'
 import ENS_PUBLIC_RESOLVER_ABI from 'abis/ens-public-resolver.json'
@@ -85,4 +86,8 @@ export function useV2RouterContract(): Contract | null {
 
 export function useMulticallContract() {
   return useContract<Multicall>(MULTICALL_ADDRESSES, MULTICALL_ABI, false) as Multicall
+}
+
+export function useStakingContract(stakingAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(stakingAddress, STAKING_REWARDS_ABI, withSignerIfPossible)
 }
