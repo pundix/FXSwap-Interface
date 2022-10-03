@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react'
-import { ROUTER_ADDRESS } from '../../constants/addresses'
 import { useV2LiquidityTokenPermit } from '../../hooks/useERC20Permit'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import Modal from '../Modal'

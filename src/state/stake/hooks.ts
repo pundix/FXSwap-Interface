@@ -140,7 +140,6 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
       if (
         // these may be undefined if not logged in
         !pendingRewardState?.loading &&
-        !userInfoState.loading &&
         // always need these
         totalSupplyState &&
         !totalSupplyState.loading &&
@@ -238,6 +237,7 @@ export const useMinichefPools = (): { [key: string]: number } => {
     return poolMap
   }, [lpTokens])
 }
+
 // based on typed value
 export function useDerivedStakeInfo(
   typedValue: string,

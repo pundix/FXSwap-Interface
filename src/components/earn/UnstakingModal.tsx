@@ -30,15 +30,15 @@ interface StakingModalProps {
   userLiquidityUnstaked: CurrencyAmount<Token> | undefined
 }
 
-export default function UnstakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
-  const { chainId, account } = useActiveWeb3React()
+export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: StakingModalProps) {
+  const { chainId } = useActiveWeb3React()
 
   // track and parse user input
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(
     typedValue,
     stakingInfo.stakedAmount.currency,
-    userLiquidityUnstaked
+    stakingInfo.stakedAmount
   )
 
   // monitor call to help UI loading state
@@ -80,14 +80,6 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo, userLiq
     }
   }
 
-  /*let error: string | undefined
-  if (!account) {
-    error = 'Connect Wallet'
-  }
-  if (!stakingInfo?.stakedAmount) {
-    error = error ?? 'Enter an amount'
-  }*/
-
   // wrapped onUserInput to clear signatures
   const onUserInput = useCallback((typedValue: string) => {
     setTypedValue(typedValue)
@@ -120,14 +112,6 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo, userLiq
             id="stake-liquidity-token"
             amount={stakingInfo.stakedAmount}
           />
-          {stakingInfo?.stakedAmount && (
-            <AutoColumn justify="center" gap="md">
-              <TYPE.body fontWeight={600} fontSize={36}>
-                {<FormattedCurrencyAmount currencyAmount={stakingInfo.stakedAmount} />}
-              </TYPE.body>
-              <TYPE.body>Deposited liquidity:</TYPE.body>
-            </AutoColumn>
-          )}
           {stakingInfo?.earnedAmount && (
             <AutoColumn justify="center" gap="md">
               <TYPE.body fontWeight={600} fontSize={36}>
