@@ -8,11 +8,11 @@ import { RouteComponentProps } from 'react-router-dom'
 import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from '../../hooks/Tokens'
 import { useWalletModalToggle } from '../../state/application/hooks'
-import { TYPE } from '../../theme'
+import { theme, TYPE } from '../../theme'
 
 import { RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
-import { ButtonPrimary, ButtonEmpty } from '../../components/Button'
+import { ButtonPrimary, ButtonEmpty, ButtonGradient } from '../../components/Button'
 import StakingModal from '../../components/earn/StakingModal'
 import { useStakingInfo } from '../../state/stake/hooks'
 import UnstakingModal from '../../components/earn/UnstakingModal'
@@ -29,6 +29,7 @@ import { useV2Pair } from '../../hooks/useV2Pairs'
 import usePrevious from '../../hooks/usePrevious'
 import useUSDCPrice from '../../hooks/useUSDCPrice'
 import { BIG_INT_ZERO, BIG_INT_SECONDS_IN_WEEK } from '../../constants/misc'
+import { style } from 'styled-system'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -271,14 +272,14 @@ export default function Manage({
                   <TYPE.black>Your unclaimed WFX</TYPE.black>
                 </div>
                 {stakingInfo?.earnedAmount && JSBI.notEqual(BIG_INT_ZERO, stakingInfo?.earnedAmount?.quotient) && (
-                  <ButtonEmpty
+                  <ButtonGradient
                     padding="8px"
                     borderradius="8px"
                     width="fit-content"
                     onClick={() => setShowClaimRewardModal(true)}
                   >
                     Claim
-                  </ButtonEmpty>
+                  </ButtonGradient>
                 )}
               </RowBetween>
               <RowBetween style={{ alignItems: 'baseline' }}>
@@ -311,7 +312,7 @@ export default function Manage({
         </BottomSection>
         <TYPE.main style={{ textAlign: 'center' }} fontSize={14}>
           <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
-            ⭐️
+            💜
           </span>
           When you withdraw, the contract will automagically claim WFX on your behalf!
         </TYPE.main>
@@ -339,7 +340,9 @@ export default function Manage({
         {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo(
             '0'
           ) ? null : !stakingInfo?.stakedAmount ? null : (
-          <TYPE.main>{userLiquidityUnstaked.toSignificant(6)} FX-V2 LP tokens available</TYPE.main>
+          <TYPE.main style={{ fontFamily: 'Gill Sans' }}>
+            {userLiquidityUnstaked.toSignificant(6)} FX-V2 LP tokens available
+          </TYPE.main>
         )}
       </PositionInfo>
     </PageWrapper>

@@ -64,15 +64,16 @@ export default function Earn() {
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>
-                  Deposit your Liquidity Provider tokens to receive PURSE, the Pundi X reward token.
+                  Deposit your FX-Swap Liquidity Provider tokens to receive WFX, the Function X protocol governance
+                  token.
                 </TYPE.white>
               </RowBetween>{' '}
               <ExternalLink
                 style={{ color: 'white', textDecoration: 'underline' }}
-                href="https://pursetoken.com/"
+                href="https://functionx.io/home"
                 target="_blank"
               >
-                <TYPE.white fontSize={14}>Read more about PURSE</TYPE.white>
+                <TYPE.white fontSize={14}>Read more about Function X</TYPE.white>
               </ExternalLink>
             </AutoColumn>
           </CardSection>

@@ -178,9 +178,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
           />
 
           <HypotheticalRewardRate dim={!hypotheticalRewardRate.greaterThan('0')}>
-            <div>
-              <TYPE.black fontWeight={600}>Weekly Rewards</TYPE.black>
-            </div>
+            <TYPE.black>Weekly Rewards: </TYPE.black>
 
             <TYPE.black>
               {hypotheticalRewardRate.multiply((15000).toString()).toSignificant(4, { groupSeparator: ',' })} FX / Week
