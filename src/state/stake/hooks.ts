@@ -220,7 +220,20 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
       }
       return memo
     }, [])
-  }, [balances, chainId, info, pairAddresses, pendingRewards, balances, wfx])
+  }, [
+    multiplier,
+    poolInfos,
+    rewardPerBlock,
+    totalAllocPoint,
+    totalSupplies,
+    userInfos,
+    balances,
+    chainId,
+    info,
+    pairAddresses,
+    pendingRewards,
+    wfx,
+  ])
 }
 
 export const useMinichefPools = (): { [key: string]: number } => {

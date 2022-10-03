@@ -8,11 +8,11 @@ import { RouteComponentProps } from 'react-router-dom'
 import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from '../../hooks/Tokens'
 import { useWalletModalToggle } from '../../state/application/hooks'
-import { theme, TYPE } from '../../theme'
+import { TYPE } from '../../theme'
 
 import { RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
-import { ButtonPrimary, ButtonEmpty, ButtonGradient } from '../../components/Button'
+import { ButtonPrimary, ButtonGradient } from '../../components/Button'
 import StakingModal from '../../components/earn/StakingModal'
 import { useStakingInfo } from '../../state/stake/hooks'
 import UnstakingModal from '../../components/earn/UnstakingModal'
@@ -29,7 +29,6 @@ import { useV2Pair } from '../../hooks/useV2Pairs'
 import usePrevious from '../../hooks/usePrevious'
 import useUSDCPrice from '../../hooks/useUSDCPrice'
 import { BIG_INT_ZERO, BIG_INT_SECONDS_IN_WEEK } from '../../constants/misc'
-import { style } from 'styled-system'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;

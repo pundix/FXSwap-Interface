@@ -5,7 +5,6 @@ import FXLogo from '../../assets/images/fx-logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/wrappedTokenInfo'
 import Logo from '../Logo'
-import { WFX } from 'constants/tokens'
 
 export const getTokenLogoURL = (address: string) =>
   `https://raw.githubusercontent.com/YP010/FXSwap-TokenList/main/Tokens/${address}/logo.png`
