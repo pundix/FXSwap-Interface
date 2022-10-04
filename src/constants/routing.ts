@@ -1,6 +1,6 @@
 // a list of tokens by chain
 import { ChainId, Token, WETH9 } from '@fx-swap/sdk-core'
-import { PURSE, PUNDIX, WFX, USDT } from './tokens'
+import { PURSE, PUNDIX, WFX, USDT, DAI } from './tokens'
 
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
@@ -25,7 +25,13 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 }
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: Partial<ChainTokenList> = {
-  [ChainId.FXCORE]: [WFX[ChainId.FXCORE], PURSE[ChainId.FXCORE], PUNDIX[ChainId.FXCORE], USDT[ChainId.FXCORE]],
+  [ChainId.FXCORE]: [
+    WFX[ChainId.FXCORE],
+    PURSE[ChainId.FXCORE],
+    PUNDIX[ChainId.FXCORE],
+    USDT[ChainId.FXCORE],
+    DAI[ChainId.FXCORE],
+  ],
   [ChainId.DHOBYGHAUT]: [WFX[ChainId.DHOBYGHAUT]],
 }
 // used to construct the list of all pairs we consider by default in the frontend
