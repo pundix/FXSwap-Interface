@@ -14,3 +14,4 @@ The FX Swap Interface supports swapping, adding liquidity and removing liquidity
 - Swap on FX Swap: https://fx-swap.io/#/swap
 - View FX Swap Liquidity: https://fx-swap.io/#/pool
 - Add FX Swap Liquidity: https://fx-swap/#/add
+- Add FX Swap LP Tokens: https://fx-swap/#/farm
