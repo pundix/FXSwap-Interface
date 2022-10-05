@@ -32,7 +32,7 @@ export default function NetworkModal({ isOpen, onDismiss }: { isOpen: boolean; o
               chainId: chainId === 530 ? '0x15f91' : '0x212',
               rpcUrls: [
                 chainId === 530
-                  ? 'https://test-fx-json-web3.functionx.io:8545'
+                  ? 'https://testnet-fx-json-web3.functionx.io:8545'
                   : 'https://fx-json-web3.functionx.io:8545',
               ],
               chainName: chainId === 530 ? 'FX Testnet' : 'FX Mainnet',
