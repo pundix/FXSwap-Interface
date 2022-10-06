@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
 import styled from 'styled-components/macro'
@@ -15,6 +15,7 @@ import { unwrappedToken } from '../../utils/wrappedCurrency'
 import { useTotalSupply } from '../../hooks/useTotalSupply'
 import { useV2Pair } from '../../hooks/useV2Pairs'
 import useUSDCPrice from '../../hooks/useUSDCPrice'
+import { useMinichefPools } from '../../state/stake/hooks'
 
 const StatContainer = styled.div`
   display: flex;
@@ -68,6 +69,32 @@ const BottomSection = styled.div<{ showBackground: boolean }>`
   z-index: 1;
 `
 
+function convertNumber(figure: number | undefined): string | undefined {
+  if (figure === undefined) {
+    return undefined
+  } else if (figure >= 1.0e12) {
+    return 'Greater than trillion'
+  } else if (figure >= 1.0e9) {
+    return (figure / 1.0e9).toPrecision(3) + 'B'
+  } else if (figure >= 1.0e6) {
+    return (figure / 1.0e6).toPrecision(3) + 'M'
+  } else if (figure >= 1.0e3) {
+    return (figure / 1.0e3).toPrecision(3) + 'K'
+  } else {
+    const numberToPrecision = figure.toPrecision(4)
+    const numberToFixed = Number(numberToPrecision).toFixed(10)
+    for (let index = numberToFixed.length - 1; index >= 0; index--) {
+      if (numberToFixed[index] === '.') {
+        return numberToFixed.slice(0, index)
+      }
+      if (numberToFixed[index] !== '0') {
+        return numberToFixed.slice(0, index + 1)
+      }
+    }
+    return undefined
+  }
+}
+
 export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) {
   const token0 = stakingInfo.tokens[0]
   const token1 = stakingInfo.tokens[1]
@@ -75,6 +102,39 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const currency0 = unwrappedToken(token0)
   const currency1 = unwrappedToken(token1)
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
+
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch(
+          `https://ap-southeast-1.aws.data.mongodb-api.com/app/application-1-tztbw/endpoint/tvl_prod`
+        )
+        if (!response.ok) {
+          throw new Error(`This is an HTTP error: The status is ${response.status}`)
+        }
+        const actualData = await response.json()
+        setData(actualData)
+        setError(null)
+      } catch (err) {
+        setError(err.message)
+        setData(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+    getData()
+  }, [])
+
+  const poolMap = useMinichefPools()
+  const lpTokenAddress = stakingInfo.stakingRewardAddress
+  const farmPoolIndex = poolMap[lpTokenAddress]
+  const apr = convertNumber(Number(data?.['AllData']?.['apr']?.[farmPoolIndex]))
+  const apy = convertNumber(Number(data?.['AllData']?.['apyDaily']?.[farmPoolIndex]))
+  const tvl = convertNumber(Number(data?.['AllData']?.['tvl']?.[farmPoolIndex]))
 
   // get the color of the token
   const token = currency0.isEther ? token1 : token0
@@ -128,8 +188,21 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           <TYPE.white>
             {valueOfTotalStakedAmountInUSDC
               ? `$${valueOfTotalStakedAmountInUSDC.toFixed(0, { groupSeparator: ',' })}`
-              : `${valueOfTotalStakedAmountInWFX?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} FX`}
+              : `${valueOfTotalStakedAmountInWFX?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} FX / ${
+                  tvl ? `${tvl} USD` : '-'
+                }`}
+            {/* {valueOfTotalStakedAmountInUSDC
+              ? `$${valueOfTotalStakedAmountInUSDC.toFixed(0, { groupSeparator: ',' })}`
+              : `${valueOfTotalStakedAmountInWFX?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} FX`} */}
           </TYPE.white>
+        </RowBetween>
+        <RowBetween>
+          <TYPE.white> APR </TYPE.white>
+          <TYPE.white>{apr ? `${apr} %` : '-'}</TYPE.white>
+        </RowBetween>
+        <RowBetween>
+          <TYPE.white> APY </TYPE.white>
+          <TYPE.white>{apy ? `${apy} %` : '-'}</TYPE.white>
         </RowBetween>
         <RowBetween>
           <TYPE.white> Pool rate </TYPE.white>
