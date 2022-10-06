@@ -70,10 +70,10 @@ const BottomSection = styled.div<{ showBackground: boolean }>`
 `
 
 function convertNumber(figure: number | undefined): string | undefined {
-  if (figure === undefined) {
+  if (figure === undefined || isNaN(figure)) {
     return undefined
   } else if (figure >= 1.0e12) {
-    return 'Greater than trillion'
+    return '≥ Trillion'
   } else if (figure >= 1.0e9) {
     return (figure / 1.0e9).toPrecision(3) + 'B'
   } else if (figure >= 1.0e6) {
@@ -104,8 +104,6 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
 
   const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
 
   useEffect(() => {
     const getData = async () => {
@@ -118,20 +116,15 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
         }
         const actualData = await response.json()
         setData(actualData)
-        setError(null)
-      } catch (err) {
-        setError(err.message)
-        setData(null)
-      } finally {
-        setLoading(false)
+      } catch (error) {
+        console.log(error)
       }
     }
     getData()
   }, [])
 
   const poolMap = useMinichefPools()
-  const lpTokenAddress = stakingInfo.stakingRewardAddress
-  const farmPoolIndex = poolMap[lpTokenAddress]
+  const farmPoolIndex = poolMap[stakingInfo.stakingRewardAddress]
   const apr = convertNumber(Number(data?.['AllData']?.['apr']?.[farmPoolIndex]))
   const apy = convertNumber(Number(data?.['AllData']?.['apyDaily']?.[farmPoolIndex]))
   const tvl = convertNumber(Number(data?.['AllData']?.['tvl']?.[farmPoolIndex]))
@@ -188,12 +181,9 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           <TYPE.white>
             {valueOfTotalStakedAmountInUSDC
               ? `$${valueOfTotalStakedAmountInUSDC.toFixed(0, { groupSeparator: ',' })}`
-              : `${valueOfTotalStakedAmountInWFX?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} FX / ${
-                  tvl ? `${tvl} USD` : '-'
+              : `${valueOfTotalStakedAmountInWFX?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} FX ${
+                  tvl ? ` / ${tvl} USD` : ''
                 }`}
-            {/* {valueOfTotalStakedAmountInUSDC
-              ? `$${valueOfTotalStakedAmountInUSDC.toFixed(0, { groupSeparator: ',' })}`
-              : `${valueOfTotalStakedAmountInWFX?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} FX`} */}
           </TYPE.white>
         </RowBetween>
         <RowBetween>
