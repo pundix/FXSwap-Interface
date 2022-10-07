@@ -146,10 +146,10 @@ export default function Menu() {
             <MessageCircle size={14} />
             <div>Forum</div>
           </MenuItem>
-          {/*<MenuItem href="https://app.fx-swap.io/">
+          <MenuItem href="https://app.fx-swap.io/">
             <PieChart size={14} />
             <div>Analytics</div>
-          </MenuItem>*/}
+          </MenuItem>
           {account && chainId === 90001 && (
             <ClaimButton
               onClick={() => window.open('https://testnet-faucet.functionx.io/', '_blank')}

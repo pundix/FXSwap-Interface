@@ -311,12 +311,12 @@ export default function Header() {
         >
           {t('pool')}
         </StyledNavLink>
-        <StyledNavLink id={`farm-nav-link`} to={'/farm'}>
+        {/*<StyledNavLink id={`farm-nav-link`} to={'/farm'}>
           {t('Farm')}
-        </StyledNavLink>
-        {/*<StyledExternalLink id={`stake-nav-link`} href={'https://app.fx-swap.io/'}>
+        </StyledNavLink>*/}
+        <StyledExternalLink id={`stake-nav-link`} href={'https://app.fx-swap.io/'}>
           Charts <span style={{ fontSize: '11px', textDecoration: 'none !important' }}>↗</span>
-        </StyledExternalLink>*/}
+        </StyledExternalLink>
       </HeaderLinks>
       <HeaderControls>
         <HeaderElement>

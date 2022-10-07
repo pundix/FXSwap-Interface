@@ -293,14 +293,14 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
               </Text>
             </FixedHeightRow>
 
-            {/*<ButtonSecondary padding="8px" borderradius="8px">
+            <ButtonSecondary padding="8px" borderradius="8px">
               <ExternalLink
                 style={{ width: '100%', textAlign: 'center' }}
                 href={`https://app.fx-swap.io/account/${account}`}
               >
                 View accrued fees and analytics<span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
-                </ButtonSecondary>*/}
+            </ButtonSecondary>
             {userDefaultPoolBalance && JSBI.greaterThan(userDefaultPoolBalance.quotient, BIG_INT_ZERO) && (
               <RowBetween marginTop="10px">
                 <ButtonPrimary
