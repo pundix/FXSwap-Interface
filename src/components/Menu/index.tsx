@@ -142,7 +142,7 @@ export default function Menu() {
             <BookOpen size={14} />
             <div>GitBook</div>
           </MenuItem>
-          <MenuItem href="https://forum.functionx.io/">
+          <MenuItem href="https://forum.starscan.io/">
             <MessageCircle size={14} />
             <div>Forum</div>
           </MenuItem>

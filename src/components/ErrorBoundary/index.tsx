@@ -98,7 +98,7 @@ export default class ErrorBoundary extends React.Component<unknown, ErrorBoundar
                   </ExternalLink>
                 </LinkWrapper>
                 <LinkWrapper>
-                  <ExternalLink id="get-support-on-discord" href="https://forum.functionx.io" target="_blank">
+                  <ExternalLink id="get-support-on-discord" href="https://forum.starscan.io" target="_blank">
                     <TYPE.link fontSize={16}>
                       Get support on Function X Forum
                       <span>↗</span>

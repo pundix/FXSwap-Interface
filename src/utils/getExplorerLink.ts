@@ -1,8 +1,8 @@
 import { ChainId } from '@fx-swap/sdk-core'
 
 const FXSCAN_PREFIXES: { [chainId in ChainId]: string } = {
-  530: '',
-  90001: 'testnet-',
+  530: 'explorer.starscan',
+  90001: 'testnet-explorer.functionx',
 }
 
 export enum ExplorerDataType {
@@ -19,7 +19,7 @@ export enum ExplorerDataType {
  * @param type the type of the data
  */
 export function getExplorerLink(chainId: ChainId, data: string, type: ExplorerDataType): string {
-  const prefix = `https://${FXSCAN_PREFIXES[chainId] || FXSCAN_PREFIXES[530]}explorer.functionx.io/evm`
+  const prefix = `https://${FXSCAN_PREFIXES[chainId] || FXSCAN_PREFIXES[530]}.io/evm`
 
   switch (type) {
     case ExplorerDataType.TRANSACTION: {

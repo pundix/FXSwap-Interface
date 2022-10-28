@@ -2,7 +2,7 @@ import { ChainId, Token, CurrencyAmount, WETH9 } from '@fx-swap/sdk-core'
 import { Pair } from '@fx-swap/v2-sdk'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
-import { WFX, USDT, DAI, PUNDIX } from '../../constants/tokens'
+import { WFX, USDT, DAI, PUNDIX, PURSE } from '../../constants/tokens'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { useMultipleContractSingleData, useSingleCallResult, useSingleContractMultipleData } from '../multicall/hooks'
 import { tryParseAmount } from '../swap/hooks'
@@ -33,12 +33,16 @@ export const STAKING_REWARDS_INFO: {
   ],
   [ChainId.FXCORE]: [
     {
+      tokens: [WETH9[ChainId.FXCORE], USDT[ChainId.FXCORE]],
+      stakingRewardAddress: `0xb08fD050f877Eb0677bF34537C386A720beCbC7B`,
+    },
+    {
       tokens: [WETH9[ChainId.FXCORE], PUNDIX[ChainId.FXCORE]],
       stakingRewardAddress: `0x7eD74ebDA2f2AD577d9ef2aA6b6573b15FC14E39`,
     },
     {
-      tokens: [WETH9[ChainId.FXCORE], USDT[ChainId.FXCORE]],
-      stakingRewardAddress: `0xb08fD050f877Eb0677bF34537C386A720beCbC7B`,
+      tokens: [WETH9[ChainId.FXCORE], PURSE[ChainId.FXCORE]],
+      stakingRewardAddress: `0x4d7F3396ab3E8d680F7bbd332D1FE452E2a7dA6f`,
     },
   ],
 }
