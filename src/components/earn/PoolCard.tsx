@@ -199,7 +199,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           <TYPE.white>
             {stakingInfo
               ? stakingInfo.totalStakedAmount
-                ? `${stakingInfo.totalRewardRate?.multiply(15000)?.toFixed(0, { groupSeparator: ',' })} FX / week`
+                ? `${stakingInfo.totalRewardRate?.multiply(105000)?.toFixed(0, { groupSeparator: ',' })} FX / week`
                 : '0 FX / week'
               : '-'}
           </TYPE.white>
@@ -220,7 +220,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
               </span>
               {stakingInfo
                 ? stakingInfo.stakedAmount
-                  ? `${stakingInfo.rewardRate?.multiply(15000)?.toSignificant(4, { groupSeparator: ',' })} FX / Week`
+                  ? `${stakingInfo.rewardRate?.multiply(105000)?.toSignificant(4, { groupSeparator: ',' })} FX / Week`
                   : '0 FX / Week'
                 : '-'}
             </TYPE.black>

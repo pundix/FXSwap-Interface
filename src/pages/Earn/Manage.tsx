@@ -178,10 +178,7 @@ export default function Manage({
             <TYPE.body style={{ margin: 0 }}>Pool Rate</TYPE.body>
             <TYPE.body fontSize={24} fontWeight={500}>
               {stakingInfo?.totalStakedAmount
-                ? stakingInfo?.totalRewardRate
-                    ?.multiply(BIG_INT_SECONDS_IN_WEEK)
-                    ?.divide(6)
-                    ?.toFixed(0, { groupSeparator: ',' }) ?? '-'
+                ? stakingInfo?.totalRewardRate?.multiply(105000)?.toFixed(0, { groupSeparator: ',' }) ?? '-'
                 : '0'}
               {' FX / Week'}
             </TYPE.body>
