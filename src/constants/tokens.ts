@@ -77,3 +77,5 @@ export const PURSE: { [chainId in ChainId]: Token } = {
     'PURSE Token'
   ),
 }
+
+export const WETH = new Token(ChainId.FXCORE, '0x0CE35b0D42608Ca54Eb7bcc8044f7087C18E7717', 18, 'WETH', 'Wrapped Ether')
